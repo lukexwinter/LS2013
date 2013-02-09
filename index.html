@@ -34,27 +34,28 @@
 	<div id="navigation">
 		<div class="container">
 			<div class="row">
-				<div class="eightcol home-link">
-					<a href="#">Luke Sedmak</a>
-				</div>
-				<div id="links">
-					<ul>
-						<li class="onecol"><a href="#">Work</a></li>
-						<li class="onecol"><a href="#about.html">About</a></li>
-						<li class="onecol"><a href="#contact.html">Contact</a></li>
-						<li class="onecol last social">
-							<a href="http://www.twitter.com/lukexwinter" target="_blank"><span class="twitter"></span></a>
-							<a href="http://www.dribbble.com/lukexwinter" target="_blank"><span class="dribbble"></span></a>
-						</li>
-					</ul>
-					<select class="fourcol last" ONCHANGE="location = this.options[this.selectedIndex].value;">
-						<option value="" selected>Navigation</option>
-						<option value="#">Work</option>
-						<option value="#about.html">About</option>
-						<option value="#contact.html">Contact</option>
-						<option value="http://www.twitter.com/lukexwinter">Twitter</option>
-						<option value="http://www.dribbble.com/lukexwinter">Dribbble</option>
-					</select>
+				<div class="twelvecol">
+					<a id="home-link" href="#">Luke Sedmak</a>
+					<div id="links">
+						<ul>
+							<li><a href="#">Work</a></li>
+							<li><a href="#about.html">About</a></li>
+							<li><a href="#contact.html">Contact</a></li>
+							<li class="social">
+								<a href="http://www.twitter.com/lukexwinter" target="_blank"><span class="twitter">Twitter</span></a>
+								<a href="http://www.dribbble.com/lukesedmak" target="_blank"><span class="dribbble">Dribbble</span></a>
+							</li>
+						</ul>
+						<select> 
+						    <option value="" selected="selected">Navigation</option> 
+
+						    <option value="#">Work</option> 
+						    <option value="#about.html">About</option> 
+						    <option value="#contact.html">Contact</option> 
+						    <option value="http://www.twitter.com/lukexwinter">Twitter</option> 
+							<option value="/pages/support">Dribbble</option> 
+						  </select>
+					</div>
 				</div>	
 			</div>
 			<div class="row arrow">
@@ -69,7 +70,7 @@
 						<span id="static"></span>
 						<span id="loader"></span>
 					</a>
-					<a class="sub-nav" id="prev-project" href="#"><span>&laquo;</span> Previous Project</a>
+					<a class="sub-nav" id="prev-project" href="#"><span>&laquo;</span> Previous</a>
 					<a class="sub-nav" id="next-project" href="#">Next Project <span>&raquo;</span></a>
 				</div>
 			</div>
@@ -235,12 +236,6 @@
 		}
 		
 		
-			
-			
-			
-		
-		
-		
 		//store the next project location to variable and assign it to #next-project link
 		var nextProject = currentProject+1;
 		console.log(nextProject);
@@ -284,7 +279,7 @@
 			clearTimeout(t);
 			t=setTimeout(function(){$('.project-view .arrow').addClass('subtract').removeClass('expand')},350);
 		}	
-	})
+	});
 	
 	$('#navigation').mouseleave(function(){
 		if ($('.project-view').length) {
@@ -295,8 +290,26 @@
 			$('#nav-contain').removeClass('expand');
 			$('.arrow').removeClass('subtract').removeClass('expand');	
 		}	
-	})
+	});
 	
+	//Make Select Navigation Work
+	$("select").change(function() {
+	  window.location = $(this).find("option:selected").val();
+	});
+	
+</script>
+
+<script type="text/javascript">
+/* http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/ */
+if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+	var viewportmeta = document.querySelector('meta[name="viewport"]');
+	if (viewportmeta) {
+		viewportmeta.content = 'width=device-width, minimum-scale=1.0, maximum-scale=1.0';
+		document.body.addEventListener('gesturestart', function() {
+			viewportmeta.content = 'width=device-width, minimum-scale=0.25, maximum-scale=1.6';
+		}, false);
+	}
+}
 </script>
 
 </body>
