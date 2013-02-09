@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Luke Sedmak</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	
+	<!-- Your styles -->
+	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+	<link href='http://fonts.googleapis.com/css?family=GFS+Didot' rel='stylesheet' type='text/css'>
+	
+	<!-- Jquery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.8.2.min.js"><\/script>')</script>
+	<script src="js/jquery.bbq.js"></script>
+
+	
+	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+	<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+	
+</head>
+
+
+<body>
+<div id="navigation">
+	<div class="container">
+		<div class="row">
+			<div class="eightcol home-link">
+				<a href="/">Luke Sedmak</a>
+			</div>
+			<ul>
+				<li class="onecol"><a href="http://www.lukesedmak.com">Work</a></li>
+				<li class="onecol"><a href="#about.html">About</a></li>
+				<li class="onecol"><a href="#contact.html">Contact</a></li>
+				<li class="onecol last social">
+					<a href="http://www.twitter.com/lukexwinter" target="_blank"><span class="twitter"></span></a>
+					<a href="http://www.dribbble.com/lukexwinter" target="_blank"><span class="dribbble"></span></a>
+				</li>
+			</ul>
+		</div>
+		<div class="row arrow">
+			<span>&raquo;</span>
+		</div>
+	</div>
+</div>
+<div id="project-navigation">
+	<div class="container">
+		<div class="row">
+				<a id="logo" href="http://www.lukesedmak.com"><img id="loader" src="img/ls-logo.jpg" /></a>
+				<a class="sub-nav" id="prev-project" href="#"><span>&laquo;</span> Previous Project</a>
+				<a class="sub-nav" id="next-project" href="#">Next Project <span>&raquo;</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="main" class="container">
+	<div class="row loaded-content">
+		<div id="work" class="row loaded-default loaded-item">
+			<div id="intro" class="threecol">
+				<h1>Luke Sedmak is a <br />multi-faceted graphic designer and front-end web developer living in Cincinnati, Ohio</h1>
+				<p>A graduate of Full Sail Real World Education in 2005 with an Associate of Science Degree in Digital Media, I am a creative idividual obsessed with timing, rhythm, thinking, reading and researching.  I believe in everything I create being better than the last.  It is my goal to bring creative problem solving through graphic design and web development solutions to those that I work with.</p>
+			</div>
+			
+			<!--Start Projects-->
+			<div id="main" class="ninecol last">
+				<a href="#traditiona.html" id="traditiona" class="project-wide">
+					<span class="number-block"><span class="number"><span class="sup">No.</span>01</span></span>
+					<h2 class="description">Traditiona<span>Art Direction, Design, Web Development</span></h2>
+					<span class="darken"></span>
+				</a>
+				<a href="#sedmak-wedding.html" id="sedmak-wedding" class="project">
+					<span class="number-block"><span class="number"><span class="sup">No.</span>02</span></span>
+					<h2 class="description">Sedmak Wedding<span>Art Direction, Design, Web Development</span></h2>
+					<span class="darken"></span>
+				</a>
+				<div style="clear: both;"></div>
+				<!--End Row 1-->
+	
+				<a href="#cloak-dagger.html" id="cloak-dagger" class="project">
+					<span class="number-block"><span class="number"><span class="sup">No.</span>03</span></span>
+					<h2 class="description">Cloak &amp; Dagger Tattoo<span>Art Direction, Design, Web Development</span></h2>
+					<span class="darken"></span>
+				</a>
+				<a href="#i-wireless.html" id="i-wireless" class="project-wide">
+					<span class="number-block"><span class="number"><span class="sup">No.</span>04</span></span>
+					<h2 class="description">i-wireless<span>Design, Web Development</span></h2>
+					<span class="darken"></span>
+				</a>
+				<div style="clear: both;"></div>
+				<!--End Row 2-->
+	
+				<a href="#cincinnati-bell.html" id="cincinnati-bell" class="project-wide">
+					<span class="number-block"><span class="number"><span class="sup">No.</span>05</span></span>
+					<h2 class="description">Cincinnati Bell<span>Design, Web Development</span></h2>
+					<span class="darken"></span>
+				</a>
+				<a href="#sitbow.html" id="sitbow" class="project">
+					<span class="number-block"><span class="number"><span class="sup">No.</span>06</span></span>
+					<h2 class="description">S.I.T.B.O.W<span>Art Direction, Design</span></h2>
+					<span class="darken"></span>
+				</a>
+				<div style="clear: both;"></div>
+				<!--End Row 3-->
+			</div><!--end ninecol-->
+		</div><!--end work-->
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div id="footer" class="container">
+	<div class="row">
+		<div class="twelvecol">
+			&copy; 2012 Luke Sedmak
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+  
+	  // Keep a mapping of url-to-container for caching purposes.
+	  var cache = {
+		// If url is '' (no fragment), display this div's content.
+		'': $('.loaded-default')
+	  };
+	  
+	  // Bind an event to window.onhashchange that, when the history state changes,
+	  // gets the url from the hash and displays either our cached content or fetches
+	  // new content to be displayed.
+	  $(window).bind( 'hashchange', function(e) {
+		
+		$('body,html').animate({
+			scrollTop: 0
+		}, 800);
+		
+		// Get the hash (fragment) as a string, with any leading # removed. Note that
+		// in jQuery 1.4, you should use e.fragment instead of $.param.fragment().
+		var url = $.param.fragment();
+		
+		//Create an Array of the existing projects from the project list
+		var projects = $(".loaded-default #main a");
+		var projectsArray = [ ];
+		projects.each(function() {
+			projectsArray.push($(this).attr("href").replace("#", ""));
+		});
+		console.log(projectsArray);
+		console.log('Current URL is ' +url);
+		
+		
+		//store the location of the current index of the URL in the project Array
+		var currentProject = projectsArray.indexOf(url);
+		var currentProject = currentProject;
+		
+		//Check if URL exists within Project Array and Assign Project Classes Accordingly
+		if ($.inArray(url, projectsArray) > -1) {
+			$("#navigation,#project-navigation").addClass('project-view');
+			$("#logo > img").attr("src", "img/loader.gif");
+		} else {
+			$("#navigation,#project-navigation").removeClass('project-view');
+		}
+		
+		
+		//store the next project location to variable and assign it to #next-project link
+		var nextProject = currentProject+1;
+		console.log(nextProject);
+		var nextUrl = "#" + projectsArray[nextProject];
+		if (nextProject > projectsArray.length-1) {
+			nextUrl  = "#" + projectsArray[0]
+		} 
+		$("#next-project").attr("href", nextUrl);
+		console.log('Next URL is ' +nextUrl);
+		
+		//store the previous project location to variable and assign it to #prev-project link
+		var prevProject = currentProject-1;
+		console.log(prevProject);
+		var prevUrl = "#" + projectsArray[prevProject];	
+		if (prevProject < 0) {
+			prevUrl  = "#" + projectsArray[projectsArray.length-1]
+		} 
+		$("#prev-project").attr("href", prevUrl)
+		console.log('Prev URL is ' +prevUrl);
+		
+		// Hide any visible ajax content.
+		$( '.loaded-content' ).children( ':visible' ).hide();
+		$( '.loaded-content' ).children().removeClass('current');
+		
+		if ( cache[ url ] ) {
+		  // Since the element is already in the cache, it doesn't need to be
+		  // created, so instead of creating it again, let's just show it!
+		  cache[ url ].show();
+		  $(".loaded-item img").hide();
+			setTimeout(function(){
+				cache[ url ].addClass('current');
+				cache[ url ].find('img').each(function(i) {$(this).delay(300*i).fadeIn(300)});
+				$("#logo > img").attr("src", "img/ls-logo.jpg");
+				},925
+			);
+		  
+		} else {
+		  // Show "loading" content while AJAX content loads.
+		  $("#logo > img").attr("src", "img/loader.gif");
+		  
+		  // Create container for this url's content and store a reference to it in
+		  // the cache.
+		  cache[ url ] = $( '<div class="loaded-item"/>' )
+			
+			// Append the content container to the parent container.
+			.appendTo( '.loaded-content' )
+			
+			// Load external content via AJAX. Note that in order to keep this
+			// example streamlined, only the content in .infobox is shown. You'll
+			// want to change this based on your needs.
+			.load( url, function(){
+			  // Content loaded, hide "loading" content.
+			  $("#logo > img").attr("src", "img/ls-logo.jpg");
+			  $(this).addClass('current');
+			});
+		}
+	  })
+	  
+	  // Since the event is only triggered when the hash changes, we need to trigger
+	  // the event now, to handle the hash the page may have loaded with.
+	  $(window).trigger( 'hashchange' );
+	  
+	});
+</script>
+
+
+
+<!--Original JS code
+<script type="text/javascript">
+	$('a').click(function () {
+		//1 If has class project or project-wide & scrollTop > 0 then scroll to the top
+		
+		//2 Add class 'project-view' to #navigation and #project-navigation & show loading image
+		
+		//3 Load appropriately requested page 
+		
+		$('body,html').animate({
+			scrollTop: 0
+		}, 800);
+		var page = $(this).attr("id");
+		var url = 'pages/'+page+'.html';
+		var work = $('#work');
+		work.fadeOut(1000, function(){ 
+			work.load(url);
+		});
+		
+		work.fadeIn(1000);
+		if ($(this).hasClass('project') || $(this).hasClass('project-wide')){
+			$("#navigation").addClass('project-view');
+			$("#project-navigation").addClass('project-view');
+			$("#logo > img").attr("src", "img/loader.gif");
+		}
+		return false;
+	});
+</script>
+-->
+</body>
+</html>
