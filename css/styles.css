@@ -11,7 +11,7 @@ p { font-size: 11px; line-height: 1.5; }
 .fright { float: right; }
 .fleft { float: left; }
 
-#main { min-height: 1000px; }
+/*#main { min-height: 1000px; }*/
 
 /*main navigation*/
 #nav-contain { width: 100%; z-index:100; -webkit-transition: all .5s ease-in-out; transition: all .5s ease-in-out; }
@@ -154,12 +154,12 @@ p { font-size: 11px; line-height: 1.5; }
 
 
 /*project .darken normal state*/
-.project-wide .darken, .project .darken { background-color: rgba(0,0,0,.0); display: block; width:100%; height: 100%; border: 0px solid red; -webkit-transition: all .10s ease-in-out; transition: all .10s ease-in-out; }
+.project-wide .darken, .project .darken { background-color: rgba(0,0,0,.0); display: block; width:100%; height: 100%; -moz-box-shadow: inset 0px 0px 0px 0px; -webkit-box-shadow: inset 0px 0px 0px 0px; box-shadow: inset 0px 0px 0px 0px; -webkit-transition: all .10s ease-in-out; transition: all .10s ease-in-out; }
 
 
 /*project .darken hover state*/
-.project-wide:hover .darken, .project:hover .darken { background-color: rgba(0,0,0,.8); display: block; width: 96.33027%;/*525px / 545px*/ height: 94.36619%; /*335px / 355px*/  border: 10px solid red;   }
-.project:hover .darken { display: block; width: 93.19727%;/*274px / 294px*/ height: 94.36619%; /*335px / 355px*/  border: 10px solid red;   }
+.project-wide:hover .darken, .project:hover .darken { background-color: rgba(0,0,0,.8); -moz-box-shadow: inset 0px 0px 0px 15px;-webkit-box-shadow: inset 0px 0px 0px 15px; box-shadow: inset 0px 0px 0px 15px;  }
+
 
 
 /*project normal state*/
@@ -168,8 +168,8 @@ p { font-size: 11px; line-height: 1.5; }
 .number-block span.sup{ font-weight: normal; font-size: 12px; position: absolute; top: 5px; right: 35px; }
 .project-wide .description, .project .description { font-weight: normal; color: #fff; font-size: 24px; position: absolute; bottom: 20px; right: 20px; text-align: right; opacity: 0; -webkit-transition: all .15s ease-in-out; transition: all .15s ease-in-out; } 
 .project-wide .description span, .project .description span { font-size: 11px; display: block; font-family: font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; opacity: 0; -webkit-transition: all .15s ease-in-out; transition: all .15s ease-in-out;}
-.project-wide:hover .description, .project:hover .description { font-weight: normal; color: #fff; font-size: 24px; position: absolute; bottom: 20px; right: 20px; text-align: right; opacity: 1; } 
-.project-wide:hover .description span, .project:hover .description span { font-size: 11px; display: block; font-family: font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; opacity: 1; } 
+.project-wide:hover .description, .project:hover .description { opacity: 1; } 
+.project-wide:hover .description span, .project:hover .description span { opacity: 1; } 
  
 
 /*project hover state*/
@@ -178,27 +178,27 @@ p { font-size: 11px; line-height: 1.5; }
 
 /*project thumb customization */
 #traditiona { background: url(../img/traditiona-thumb.jpg) no-repeat; background-size: cover; }
-#traditiona .darken { border-color: #5f5f5f; }
+#traditiona .darken { color: #5f5f5f; }
 #traditiona .number-block { background-color: #5f5f5f; }
 
 #sedmak-wedding { background: url(../img/sedmakwedding-thumb.jpg) no-repeat; background-size: cover; }
-#sedmak-wedding .darken { border-color: #8ce7d0; }
+#sedmak-wedding .darken { color: #8ce7d0; }
 #sedmak-wedding .number-block { background-color: #8ce7d0; }
 
 #cloak-dagger { background: url(../img/cloakdagger-thumb.jpg) no-repeat; background-size: cover; }
-#cloak-dagger .darken{ border-color: #aea77d; }
+#cloak-dagger .darken{ color: #aea77d; }
 #cloak-dagger .number-block{ background-color: #aea77d; }
 
 #i-wireless { background: url(../img/i-wireless-thumb.jpg) no-repeat; background-size: cover; }
-#i-wireless .darken{ border-color: #bec200; }
+#i-wireless .darken{ color: #bec200; }
 #i-wireless .number-block{ background-color: #bec200; }
 
 #cincinnati-bell { background: url(../img/cb-thumb.jpg) no-repeat; background-size: cover; }
-#cincinnati-bell .darken{ border-color: #00c0ff; }
+#cincinnati-bell .darken{ color: #00c0ff; }
 #cincinnati-bell .number-block{ background-color: #00c0ff; }
 
 #sitbow { background: url(../img/sitbow-thumb.jpg) no-repeat; background-size: cover; }
-#sitbow .darken { border-color: #ff6000;}
+#sitbow .darken { color: #ff6000;}
 #sitbow .number-block { background-color: #ff6000;}
 
 /* project pages */
@@ -210,21 +210,28 @@ p { font-size: 11px; line-height: 1.5; }
 .project-description { margin: 0 0 0 -30px; opacity: 0; -webkit-transition: all 1s ease-in-out; transition: all 1s ease-in-out; }
 .current .project-description { margin: 0; opacity: 1; -webkit-transition: all 1s ease-in-out; transition: all 1s ease-in-out; }
 
+#footer { font-size: .675em; border-top: 1px solid #e2e2e2; padding: 10px 0 25px 0; margin-top: 50px; }
+
 /* ============================= */
 /* ! Layout for mobile version   */
 /* ============================= */
 
 @media screen and (max-width: 838px) {
 	#navigation select { display: block; width: 100%; margin-right: 20px; }
-	#navigation ul { display: none; }
+	#navigation ul { display: none; width: 50px; height: 50px; }
 }
 
 @media screen and (max-width: 771px) {
-	.project-wide, .project { width: 100%; display: block; overflow: none; }
-	.project-wide .darken, .project .darken { display: none; }
-	.number-block { width: 24.965517%; height: 100%; left: 0; }
-	.project .number-block { width: 59.034483%; }
-	.project-wide {  }
+	.project-wide, .project { display: block; overflow: none; width: 48%; margin: 5px 5px 25px 5px; }
+	.project-wide:hover .darken, .project:hover .darken { display: block; }
+	.project-wide .description, .project-wide .description span, .project .description, .project .description span { opacity: 1; }
+	.project-wide .description, .project .description { bottom: 0; right: 0; padding: 10px 10px 10px 0; background: #fcfcfc; color: #000; width: 100%; }
+	.number-block { left: 0; display: block; }
+}
+
+@media screen and (max-width: 544px) {
+	.project-wide, .project { display: block; overflow: none; width: 100%; margin: 0 0 25px 0; }
+	
 }
 
 @media handheld, only screen and (max-width: 767px) {
