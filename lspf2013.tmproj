@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>css/styles.css</string>
+	<string>index.html</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -40,7 +40,7 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>86</integer>
+				<integer>60</integer>
 				<key>line</key>
 				<integer>199</integer>
 			</dict>
@@ -54,14 +54,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>312</integer>
+				<integer>291</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>278</integer>
+			<integer>94</integer>
 		</dict>
 		<key>js/jquery-1.8.2.min.js</key>
 		<dict>
@@ -118,6 +118,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{885, 169}, {1040, 715}}</string>
+	<string>{{240, 63}, {1040, 715}}</string>
 </dict>
 </plist>

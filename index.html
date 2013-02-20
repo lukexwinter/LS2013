@@ -141,163 +141,139 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(document).ready(function () {
 		$('.loaded-default').hide();
 	});
-	
+	$(function () {
+		// Keep a mapping of url-to-container for caching purposes.
+		var cache = {
+			// If url is '' (no fragment), display this div's content.
+			'': $('.loaded-default')
+		};
+		// Bind an event to window.onhashchange that, when the history state changes,
+		// gets the url from the hash and displays either our cached content or fetches
+		// new content to be displayed.
+		$(window).bind('hashchange', function (e) {
+			// Get the hash (fragment) as a string, with any leading # removed. Note that
+			// in jQuery 1.4, you should use e.fragment instead of $.param.fragment().
+			var url = $.param.fragment();
+			$('body,html').animate({
+				scrollTop: 0
+			}, 800, function () {
+				$('.loaded-content').children().removeClass('current');
+				$('.loaded-content').children(':visible').fadeOut(300,
 
-	$(function(){
-	  // Keep a mapping of url-to-container for caching purposes.
-	  var cache = {
-		// If url is '' (no fragment), display this div's content.
-		'': $('.loaded-default')
-	  };
-	  
-	  // Bind an event to window.onhashchange that, when the history state changes,
-	  // gets the url from the hash and displays either our cached content or fetches
-	  // new content to be displayed.
-	  $(window).bind( 'hashchange', function(e) {
-		
-		// Get the hash (fragment) as a string, with any leading # removed. Note that
-		// in jQuery 1.4, you should use e.fragment instead of $.param.fragment().
-		var url = $.param.fragment();
-		
-		//remove expand / subtract
-		
-				
-		//if ($('.loaded-default').hasClass('foo'))
-		$('body,html').animate({
-			scrollTop: 0
-		}, 800, function(){
-			$( '.loaded-content' ).children().removeClass('current');
-			
-			$( '.loaded-content' ).children( ':visible' ).fadeOut(300,
-				function(){
-					if ( cache[ url ] ) {
- 						// Since the element is already in the cache, it doesn't need to be
+				function () {
+					if(cache[url]) {
+						// Since the element is already in the cache, it doesn't need to be
 						// created, so instead of creating it again, just show it
-						cache[ url ].fadeIn();
+						cache[url].fadeIn();
 						$(".loaded-item img").hide();
-						setTimeout(function(){
-							cache[ url ].addClass('current');
-							cache[ url ].find('img').each(function(i) {$(this).delay(300*i).fadeIn(300)});
+						//setTimeout(function () {
+							cache[url].addClass('current');
+							cache[url].find('img').each(function (i) {
+								$(this).delay(300 * i).fadeIn(300)
+							});
 							$("#loader").fadeOut(2000);
-						},1500);
+						//}, 1500);
 					} else {
 						// Show "loading" content while AJAX content loads.
 						$("#loader").show();
-
 						// Create container for this url's content and store a reference to it in
 						// the cache.
-						cache[ url ] = $( '<div class="loaded-item"/>' )
-
+						cache[url] = $('<div class="loaded-item"/>')
 						// Append the content container to the parent container.
-						.appendTo( '.loaded-content' )
-
+						.appendTo('.loaded-content')
 						// Load external content via AJAX. Note that in order to keep this
 						// example streamlined, only the content in .infobox is shown. You'll
 						// want to change this based on your needs.
-						.load( url, function(){
-  						
-						// Content loaded, hide "loading" content.
-						setTimeout(function(){
-  							$(this).addClass('current');
-						},300);
+						.load(url, function () {
+							// Content loaded, hide "loading" content.
 							$(this).find('img').hide();
-							$(this).find('img').each(function(i) {$(this).delay(300*i).fadeIn(300)});
+							$(this).find('img').each(function (i) {
+								$(this).delay(300 * i).fadeIn(300)
+							});
+							setTimeout(function () {
+								$(this).addClass('current');
+							}, 300);
 							
-					});
+						});
+					}
+				})
+				//Create an Array of the existing projects from the project list
+				var projects = $(".loaded-default #main a");
+				var projectsArray = [];
+				projects.each(function () {
+					projectsArray.push($(this).attr("href").replace("#", ""));
+				});
+				console.log(projectsArray);
+				console.log('Current URL is ' + url);
+				//store the location of the current index of the URL in the project Array
+				var currentProject = projectsArray.indexOf(url);
+				//Check if URL exists within Project Array and Assign Project Classes Accordingly
+				if($.inArray(url, projectsArray) > -1) {
+					$("#loader").show();
+					setTimeout(function () {
+						$("#nav-contain").addClass('project-view');
+					}, 300);
+				} else {
+					setTimeout(function () {
+						$("#nav-contain").removeClass('project-view');
+					}, 300);
+					
 				}
-			})
-		
-		
-		
-		
-		
-		//Create an Array of the existing projects from the project list
-		var projects = $(".loaded-default #main a");
-		var projectsArray = [ ];
-		projects.each(function() {
-			projectsArray.push($(this).attr("href").replace("#", ""));
-		});
-		console.log(projectsArray);
-		console.log('Current URL is ' +url);
-		
-		
-		//store the location of the current index of the URL in the project Array
-		var currentProject = projectsArray.indexOf(url);
-		
-		//Check if URL exists within Project Array and Assign Project Classes Accordingly
-		if ($.inArray(url, projectsArray) > -1) {
-			$("#nav-contain").addClass('project-view');
-			$("#loader").show();
-		} else {
-			$("#nav-contain").removeClass('project-view');
-		}
-		
-		
-		//store the next project location to variable and assign it to #next-project link
-		var nextProject = currentProject+1;
-		console.log(nextProject);
-		var nextUrl = "#" + projectsArray[nextProject];
-		if (nextProject > projectsArray.length-1) {
-			nextUrl  = "#" + projectsArray[0]
-		} 
-		$("#next-project").attr("href", nextUrl);
-		console.log('Next URL is ' +nextUrl);
-		
-		//store the previous project location to variable and assign it to #prev-project link
-		var prevProject = currentProject-1;
-		console.log(prevProject);
-		var prevUrl = "#" + projectsArray[prevProject];	
-		if (prevProject < 0) {
-			prevUrl  = "#" + projectsArray[projectsArray.length-1]
-		} 
-		$("#prev-project").attr("href", prevUrl)
-		console.log('Prev URL is ' +prevUrl);
-		
-		// Hide any visible ajax content.
-
-			}
-			);
-		
-		
-		
-	  })
-	  
-	  // Since the event is only triggered when the hash changes, we need to trigger
-	  // the event now, to handle the hash the page may have loaded with.
-	  $(window).trigger( 'hashchange' );
-	  
+				//store the next project location to variable and assign it to #next-project link
+				var nextProject = currentProject + 1;
+				console.log(nextProject);
+				var nextUrl = "#" + projectsArray[nextProject];
+				if(nextProject > projectsArray.length - 1) {
+					nextUrl = "#" + projectsArray[0]
+				}
+				$("#next-project").attr("href", nextUrl);
+				console.log('Next URL is ' + nextUrl);
+				//store the previous project location to variable and assign it to #prev-project link
+				var prevProject = currentProject - 1;
+				console.log(prevProject);
+				var prevUrl = "#" + projectsArray[prevProject];
+				if(prevProject < 0) {
+					prevUrl = "#" + projectsArray[projectsArray.length - 1]
+				}
+				$("#prev-project").attr("href", prevUrl)
+				console.log('Prev URL is ' + prevUrl);
+				// Hide any visible ajax content.
+			});
+		})
+		// Since the event is only triggered when the hash changes, we need to trigger
+		// the event now, to handle the hash the page may have loaded with.
+		$(window).trigger('hashchange');
 	});
-	
 	//Rollover Dropdown Nav in Project view
 	var t;
-	$('#navigation').mouseover(function(){
-		if ($('.project-view').length) {
+	$('#navigation').mouseover(function () {
+		if($('.project-view').length) {
 			$('#nav-contain').addClass('expand');
 			clearTimeout(t);
-			t=setTimeout(function(){$('.project-view .arrow').addClass('subtract').removeClass('expand')},350);
-		}	
+			t = setTimeout(function () {
+				$('.project-view .arrow').addClass('subtract').removeClass('expand')
+			}, 350);
+		}
 	});
-	
-	$('#navigation').mouseleave(function(){
-		if ($('.project-view').length) {
+	$('#navigation').mouseleave(function () {
+		if($('.project-view').length) {
 			$('#nav-contain').removeClass('expand');
 			clearTimeout(t);
 			$('.project-view .arrow').removeClass('subtract').addClass('expand');
-		}else{
+		} else {
 			$('#nav-contain').removeClass('expand');
-			$('.arrow').removeClass('subtract').removeClass('expand');	
-		}	
+			$('.arrow').removeClass('subtract').removeClass('expand');
+		}
 	});
-	
 	//Make Select Navigation Work
-	$("select").change(function() {
-	  window.location = $(this).find("option:selected").val();
+	$("select").change(function () {
+		window.location = $(this).find("option:selected").val();
 	});
-	
 </script>
+
 
 <script type="text/javascript">
 /* http://www.blog.highub.com/mobile-2/a-fix-for-iphone-viewport-scale-bug/ */
