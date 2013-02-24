@@ -53,7 +53,7 @@
 						    <option value="#about.html">About</option> 
 						    <option value="#contact.html">Contact</option> 
 						    <option value="http://www.twitter.com/lukexwinter">Twitter</option> 
-							<option value="/pages/support">Dribbble</option> 
+							<option value="http://www.dribbble.com/lukesedmak">Dribbble</option> 
 						  </select>
 					</div>
 				</div>	
@@ -83,7 +83,7 @@
 		<div id="work" class="row loaded-default loaded-item">
 			<div id="intro" class="threecol">
 				<h1>Luke Sedmak is a multi-faceted graphic designer and front-end web developer living in Cincinnati, Ohio</h1>
-				<p>A graduate of Full Sail Real World Education in 2005 with an Associate of Science Degree in Digital Media, I am a creative idividual obsessed with timing, rhythm, thinking, reading and researching.  I believe in everything I create being better than the last.  It is my goal to bring creative problem solving through graphic design and web development solutions to those that I work with.</p>
+				<p>I am a creative individual obsessed with timing, rhythm, thinking, reading and researching.  I believe in everything I create being better than the last.  It is my goal to bring creative problem solving through graphic design and web development solutions to those that I work with.</p>
 			</div>
 			
 			<!--Start Projects-->
@@ -132,14 +132,6 @@
 	</div>
 </div>
 
-<div id="footer" class="container">
-	<div class="row">
-		<div class="twelvecol">
-			&copy; 2012 Luke Sedmak
-		</div>
-	</div>
-</div>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		$('.loaded-default').hide();
@@ -168,14 +160,14 @@
 						// Since the element is already in the cache, it doesn't need to be
 						// created, so instead of creating it again, just show it
 						cache[url].fadeIn();
-						$(".loaded-item img").hide();
-						//setTimeout(function () {
-							cache[url].addClass('current');
-							cache[url].find('img').each(function (i) {
-								$(this).delay(300 * i).fadeIn(300)
-							});
-							$("#loader").fadeOut(2000);
-						//}, 1500);
+							$(".loaded-item img").hide();
+							setTimeout(function () {
+								cache[url].addClass('current');
+								cache[url].find('img').each(function (i) {
+									$(this).delay(300 * i).fadeIn(300)
+								});
+								$("#loader").fadeOut(2000);
+							}, 1500);
 					} else {
 						// Show "loading" content while AJAX content loads.
 						$("#loader").show();
