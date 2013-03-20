@@ -204,8 +204,9 @@
 				projects.each(function () {
 					projectsArray.push($(this).attr("href").replace("#", ""));
 				});
-				console.log(projectsArray);
-				console.log('Current URL is ' + url);
+				//console.log(projectsArray);
+				//console.log('Current URL is ' + url);
+				
 				//store the location of the current index of the URL in the project Array
 				var currentProject = projectsArray.indexOf(url);
 				//Check if URL exists within Project Array and Assign Project Classes Accordingly
@@ -222,22 +223,22 @@
 				}
 				//store the next project location to variable and assign it to #next-project link
 				var nextProject = currentProject + 1;
-				console.log(nextProject);
+				//console.log(nextProject);
 				var nextUrl = "#" + projectsArray[nextProject];
 				if(nextProject > projectsArray.length - 1) {
 					nextUrl = "#" + projectsArray[0]
 				}
 				$("#next-project").attr("href", nextUrl);
-				console.log('Next URL is ' + nextUrl);
+				//console.log('Next URL is ' + nextUrl);
 				//store the previous project location to variable and assign it to #prev-project link
 				var prevProject = currentProject - 1;
-				console.log(prevProject);
+				//console.log(prevProject);
 				var prevUrl = "#" + projectsArray[prevProject];
 				if(prevProject < 0) {
 					prevUrl = "#" + projectsArray[projectsArray.length - 1]
 				}
 				$("#prev-project").attr("href", prevUrl)
-				console.log('Prev URL is ' + prevUrl);
+				//console.log('Prev URL is ' + prevUrl);
 				// Hide any visible ajax content.
 			});
 		})
@@ -287,9 +288,20 @@ if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) 
 </script>
 
 <script>
-      var stage = new swiffy.Stage(document.getElementById('loader'),
-                                   swiffyobject);
-      stage.start();
+	var stage = new swiffy.Stage(document.getElementById('loader'), swiffyobject);
+	stage.start();
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39454791-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 </script>
 
 </body>

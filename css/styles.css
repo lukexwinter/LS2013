@@ -11,7 +11,7 @@ p { font-size: 11px;  line-height: 1.5; color: #404040; margin: 0 0 30px 0; }
 .fright { float: right; }
 .fleft { float: left; }
 
-/*#main { min-height: 1000px; }*/
+#intro h1, #intro p { padding: 0 0 0 6px; }
 
 /*main navigation*/
 #nav-contain { width: 100%; z-index:100; -webkit-transition: all .5s ease-in-out; transition: all .5s ease-in-out; position: relative; }
@@ -209,6 +209,9 @@ p { font-size: 11px;  line-height: 1.5; color: #404040; margin: 0 0 30px 0; }
 .project-description h2 { font-size: 13px; font-weight: bold; margin: 0 0 30px 0; }
 .container.project-work { padding-top: 150px; }
 .project-work img { margin: 0 0 30px 0; }
+.web-link, .top-link { font-size: 13px; margin: 0 0 15px 0; background-color: #ededed; padding: 13px 0; text-align: center; font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; font-style: italic; text-decoration: none; width: 100%; display: block; cursor: pointer; }
+.web-link:hover, .top-link:hover { background-color: #e5e5e5; }
+
 
 
 /*project page load animation*/
