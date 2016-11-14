@@ -204,6 +204,22 @@ p { font-size: 11px;  line-height: 1.5; color: #404040; margin: 0 0 30px 0; }
 #sitbow .darken { color: #ff6000;}
 #sitbow .number-block { background-color: #ff6000;}
 
+#project-8451 { background: url(../img/8451-thumb.jpg) no-repeat; background-size: cover; }
+#project-8451 .darken { color: #da47b4; }
+#project-8451 .number-block { background-color: #da47b4; }
+
+#north680 { background: url(../img/north680-thumb.jpg) no-repeat; background-size: cover; }
+#north680 .darken { color: #3f4d55; }
+#north680 .number-block { background-color: #3f4d55; }
+
+#bar-and-vine { background: url(../img/bv-thumb.jpg) no-repeat; background-size: cover; }
+#bar-and-vine .darken { color: #6f8fb2; }
+#bar-and-vine .number-block { background-color: #6f8fb2; }
+
+#seven-at-broadway { background: url(../img/seven-thumb.jpg) no-repeat; background-size: cover; }
+#seven-at-broadway .darken { color: #65d7d5; }
+#seven-at-broadway .number-block { background-color: #65d7d5; }
+
 /* project pages */
 .project-description h1 { margin: 0 }
 .project-description h2 { font-size: 13px; font-weight: bold; margin: 0 0 30px 0; }
